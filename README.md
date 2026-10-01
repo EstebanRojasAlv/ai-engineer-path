@@ -1,8 +1,8 @@
-### AI Engineer Path
+# AI Engineer Path
 
 This repository documents my learning path to become an AI engineer. Each module contains the software that I have built to improve my skills.
 
-### Module 1: Token Cost Calculator
+## Module 1: Token Cost Calculator
 
 A command-line tool that estimates the cost of using language models.
 It calculates the cost per request, per day and per month.
