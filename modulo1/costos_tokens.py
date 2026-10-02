@@ -1,38 +1,38 @@
 import sys
 
-TOKENS_POR_MILLON = 1_000_000 
-DIAS_POR_MES = 30
+TOKENS_PER_MILLION = 1_000_000 
+DAYS_PER_MONTH = 30
 
-MODELOS = {             
-            "rapido": {"entrada": 0.25, "salida": 1.25},
-            "medio": {"entrada": 3.00, "salida": 15.00},
-            "grande": {"entrada": 15.00, "salida": 75.00},
+MODELS = {             
+            "quick": {"input": 0.25, "output": 1.25},
+            "medium": {"input": 3.00, "output": 15.00},
+            "max": {"input": 15.00, "output": 75.00},
                 }
 
 
-def calcular_costo(modelo, tokens_entrada, tokens_salida):
-    precio_entrada = MODELOS[modelo]["entrada"]
-    precio_salida = MODELOS[modelo]["salida"]
-    costo_entrada = tokens_entrada / TOKENS_POR_MILLON * precio_entrada
-    costo_salida = tokens_salida / TOKENS_POR_MILLON * precio_salida
-    total = costo_entrada + costo_salida
+def calculate_cost(model, input_token, output_token):
+    input_price = MODELS[model]["input"]
+    output_price = MODELS[model]["output"]
+    input_cost = input_token / TOKENS_PER_MILLION * input_price
+    output_cost = output_token / TOKENS_PER_MILLION * output_price
+    total = input_cost + output_cost
     return total     
 
 
-modelo = input("Modelo (rapido/medio/grande): ").strip().lower()
-if modelo not in MODELOS:
-    sys.exit(f"Error: Modelo no existe. Disponibles: {', '.join(MODELOS)}")
+model = input("Model (quick/medium/max): ").strip().lower()
+if model not in MODELS:
+    sys.exit(f"Error: Model does not exist. Available: {', '.join(MODELS)}")
 try:
-    tokens_entrada = int(input("Tokens de entrada por peticion: "))
-    tokens_salida = int(input("Tokens de salida por peticion: "))
-    peticiones_dia = int(input("Peticiones por dia: "))
+    input_token = int(input("Input tokens per request: "))
+    output_token = int(input("Output tokens per request: "))
+    daily_request = int(input("Requests per day: "))
 except ValueError:
-    sys.exit("Error: La cantidad debe ser un numero entero")
-if tokens_entrada < 0 or tokens_salida < 0 or peticiones_dia < 0:
-    sys.exit("Error: Los valores no pueden ser negativos")
-costo_peticion = calcular_costo(modelo, tokens_entrada, tokens_salida)
-costo_diario = costo_peticion * peticiones_dia
-costo_mensual = costo_diario * DIAS_POR_MES
-print(f"Costo por peticion: ${costo_peticion:.4f}")
-print(f"Costo diario: ${costo_diario:.4f}")
-print(f"Costo mensual: ${costo_mensual:.4f}")
+    sys.exit("Error: The data must be integers")
+if input_token < 0 or output_token < 0 or daily_request < 0:
+    sys.exit("Error: The data must not be negative")
+request_cost = calculate_cost(model, input_token, output_token)
+daily_cost = request_cost * daily_request
+monthly_cost = daily_cost * DAYS_PER_MONTH
+print(f"Cost per request: ${request_cost:.4f}")
+print(f"Daily cost: ${daily_cost:.4f}")
+print(f"Monthly cost: ${monthly_cost:.4f}")
