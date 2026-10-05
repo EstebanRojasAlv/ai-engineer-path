@@ -16,6 +16,13 @@ It validates the user input and shows a clear error message when the input is in
 python modulo1/costos_tokens.py
 ```
 
+### How to test
+
+To run the automated tests for this project, first install the dependencies and then run pytest:
+
+1. `pip install -r requirements.txt`
+2. `pytest` 
+
 ### Example
 
 ```
