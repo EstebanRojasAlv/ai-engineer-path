@@ -58,5 +58,5 @@ python modulo1/weather.py
 
 ```
 City: Bogota
-Bogotá, Colombia: 12.6°C, wind2.5km/h
+Bogotá, Colombia: 12.6°C, wind 2.7 km/h
 ```
