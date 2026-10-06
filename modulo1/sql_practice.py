@@ -5,22 +5,25 @@ connection = sqlite3.connect("practice.db")
 connection.execute("""
     CREATE TABLE IF NOT EXISTS materials (
     id INTEGER PRIMARY KEY,
-    name TEXT NOT NULL,
-    price REAL NOT NULL
+    name TEXT UNIQUE NOT NULL,
+    price INTEGER NOT NULL
     )
 """)
 
 connection.execute(
-    "INSERT INTO materials (name, price) VALUES (?, ?)",
+    "INSERT INTO materials (name, price) VALUES (?, ?) "
+    "ON CONFLICT(name) DO UPDATE SET price = excluded.price",
     ("cement", 32000),
 )
 connection.execute(
-    "INSERT INTO materials (name, price) VALUES (?, ?)",
+    "INSERT INTO materials (name, price) VALUES (?, ?) "
+    "ON CONFLICT(name) DO UPDATE SET price = excluded.price",
     ("sand", 85000),
 )
 connection.execute(
-    "INSERT INTO materials (name, price) VALUES (?, ?)",
-    ("steel", 120000)
+    "INSERT INTO materials (name, price) VALUES (?, ?) "
+    "ON CONFLICT(name) DO UPDATE SET price = excluded.price",
+    ("steel", 140000),
 )
 connection.commit()
 
