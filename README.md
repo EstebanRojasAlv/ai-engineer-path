@@ -2,7 +2,9 @@
 
 This repository documents my learning path to become an AI engineer. Each module contains the software that I have built to improve my skills.
 
-## Module 1: Token Cost Calculator
+## Module 1: Python Fundamentals
+
+### Token Cost Calculator
 
 A command-line tool that estimates the cost of using language models.
 
@@ -33,4 +35,28 @@ Requests per day: 1000
 Cost per request: $0.0135
 Daily cost: $13.5000
 Monthly cost: $405.0000
+```
+
+### Weather CLI
+
+A command-line tool that gives the weather information.
+
+You enter a city name and it shows the current temperature and wind speed.
+
+It validates the user input and shows a clear error message when the input is invalid.
+
+
+### How to run
+
+```
+pip install -r requirements.txt
+python modulo1/weather.py
+```
+
+
+### Example
+
+```
+City: Bogota
+Bogotá, Colombia: 12.6°C, wind2.5km/h
 ```
