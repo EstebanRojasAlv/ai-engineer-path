@@ -46,7 +46,7 @@ def main():
         sys.exit(f"Error: {error}")
     except requests.exceptions.RequestException:
         sys.exit("Error: Could not connect to the weather service. Check your internet connection.")
-    print(f"{name}, {country}: {temperature}°C, wind {wind}km/h")
+    print(f"{name}, {country}: {temperature}°C, wind{wind}km/h")
 
 
 if __name__ == "__main__":
