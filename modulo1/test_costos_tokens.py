@@ -1,5 +1,6 @@
 import pytest
-from costos_tokens import calculate_cost 
+from costos_tokens import calculate_cost
+from costos_tokens import validate_model
 
 
 def test_medium_model_cost():
@@ -21,6 +22,11 @@ def test_zero_tokens_cost_nothing():
 def test_unknown_model_raises_error():
     with pytest.raises(ValueError):
         calculate_cost("unknown_model", 2000, 500)
+
+
+def test_validate_model_rejects_unknown():
+    with pytest.raises(ValueError):
+        validate_model("ultra")
 
 
 def test_negative_tokens_raise_error():
